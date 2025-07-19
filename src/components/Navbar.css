@@ -1,0 +1,64 @@
+/* src/components/Navbar.css */
+
+.nav {
+  background: transparent;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+  font-family: 'Inter', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 25px;
+  box-shadow: 0 2px 2px -2px #ff8400;
+}
+
+logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+logo-img :hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+  logo-img {
+    height: 30px;
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #0B0829;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: #ff8400;
+}

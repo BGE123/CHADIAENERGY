@@ -1,0 +1,7 @@
+body { margin: 0; font-family: Arial, sans-serif; }
+
+.about-page, .sustainability-page, .careers-page {
+  padding: 2rem;
+  max-width: 800px;
+  margin: auto;
+}

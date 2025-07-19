@@ -1,0 +1,109 @@
+/* src/pages/HomePage.css */
+.homepage {
+  font-family: 'Inter', sans-serif;
+}
+
+.hero {
+  height: 70vh;
+  background: url('/src/assets/windfarm.jpg') no-repeat center/cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 120px 60px;
+}
+
+.hero h1 {
+  font-size: 60pt;
+  font-weight: bold;
+  color: #F9DFC6;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #F9DFC6;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #0B0829;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.values {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+.value-text {
+  font-size: 12vw;
+  font-weight: 800;
+  margin: 0;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  white-space: nowrap;
+}
+
+.value-text.slide-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.value-text:not(:last-child) {
+  margin-bottom: -1.2vw;
+}
+
+.services {
+  padding: 50px;
+  color: #0B0829;
+}
+
+h2 {
+  font-size: 30pt;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 250px;
+  text-align: center;
+}
+
+.card h4 {
+  font-size: 18pt;
+  color: #0B0829;
+}
+
+.card p {
+  color: #828282;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.why-chadia {
+  background-color: #d9d9d9;
+  color: #0B0829;
+  padding: 40px 20px;
+  text-align: left;
+}
