@@ -1,5 +1,5 @@
 import React from 'react';
-import './About.css';
+import './index.css';
 
 function About() {
   return (
@@ -10,7 +10,7 @@ function About() {
       </div>
 
       <div className='about-flex'>
-      <img src="/src/assets/engineer.jpeg" alt="Engineering in Action"/>
+      <img className= 'about-img' src="/src/assets/engineer.jpeg" alt="Engineering in Action"/>
 
       <div className="about-content">
         <p>

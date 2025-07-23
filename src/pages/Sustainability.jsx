@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sustainability.css';
+import './index.css';
 
 function Sustainability() {
   return (

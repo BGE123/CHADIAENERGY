@@ -1,5 +1,5 @@
 import React from 'react';
-import './Careers.css';
+import './index.css';
 
 const Careers = () => {
   return (

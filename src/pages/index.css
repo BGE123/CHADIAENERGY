@@ -1,0 +1,360 @@
+.homepage {
+  font-family: 'Inter', sans-serif;
+}
+
+.hero {
+  height: 70vh;
+  background: url('/src/assets/windfarm.jpg') no-repeat center/cover;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  padding: 120px 60px;
+}
+
+.hero h1 {
+  font-size: 60pt;
+  font-weight: bold;
+  color: #F9DFC6;
+}
+
+.hero p {
+  margin-top: 10px;
+  font-size: 1.2rem;
+  color: #F9DFC6;
+}
+
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  background-color: #0B0829;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.values {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 40px;
+  overflow: hidden;
+}
+
+.value-text {
+  font-size: 12vw;
+  font-weight: 800;
+  margin: 0;
+  transform: translateY(100px);
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  white-space: nowrap;
+}
+
+.value-text.slide-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.value-text:not(:last-child) {
+  margin-bottom: -1.2vw;
+}
+
+.services {
+  padding: 50px;
+  color: #0B0829;
+}
+
+.values, .why-chadia h2 {
+  font-size: 30pt;
+}
+
+.service-cards {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 250px;
+  text-align: center;
+}
+
+.card h4 {
+  font-size: 18pt;
+  color: #0B0829;
+}
+
+.card p {
+  color: #828282;
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.why-chadia {
+  background-color: #d9d9d9;
+  color: #0B0829;
+  padding: 40px 20px;
+  text-align: left;
+}
+
+.about-page {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.about-hero {
+  text-align: left;
+  margin-bottom: 2rem;
+  color: #575656;
+  padding-top: 85px;
+}
+
+.about-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-hero .highlight {
+  color: #0B0829;
+}
+
+.about-flex {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.about-img {
+  max-width: 400px;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.about-content {
+  flex: 1;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.contact-form {
+  margin-top: 3rem;
+  background-color: #f5f5f5;
+  padding: 2rem;
+  border-radius: 5px;
+}
+
+.contact-form h2 {
+  margin-bottom: 1rem;
+}
+
+.contact-form .form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-form button {
+  background-color: #0B0829;
+  color: white;
+  padding: 0.8rem 2rem;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.careers-page {
+  font-family: 'Inter', sans-serif;
+}
+
+.careers-hero {
+  background-image: url('/src/assets/Energy-transition-1.png'); /* path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  border-radius: 8px;
+}
+
+.hero-content {
+  color: white;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 60px;
+}
+
+.positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding: 40px;
+}
+
+.position {
+  flex: 1 1 300px;
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.position h3 {
+  margin-top: 0;
+  color: #000;
+}
+
+.position button {
+  margin-top: 1rem;
+  background-color: #0B0829;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.services-page {
+  font-family: 'Inter', sans-serif;
+  padding: 0 5%;
+  background-color: #fff;
+}
+
+.services-hero {
+  text-align: center;
+  padding: 80px 0 40px;
+}
+
+.services-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0B0829;
+  padding-top: 90px;
+}
+
+.services-hero p {
+  font-size: 1.2rem;
+  color: #444;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 40px;
+  padding: 40px 0;
+}
+
+.service-card {
+  text-align: left;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.service-card h2 {
+  padding: 16px 20px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #0B0829;
+}
+
+.service-card p {
+  padding: 0 20px 20px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.sustainability-page {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.sustainability-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #000080;
+}
+
+.sustainability-page p {
+  color: #444;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.pillars {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pillar {
+  flex: 1 1 300px;
+  background-color: #f0f8ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 5px solid #ffa500;
+}
+
+.pillar h3 {
+  margin-top: 0;
+  color: #000;
+}
+
+.pillar p {
+  margin-top: 0.5rem;
+}

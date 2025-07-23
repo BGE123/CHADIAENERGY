@@ -1,6 +1,6 @@
 // src/pages/HomePage.jsx
 import React, { useEffect, useRef } from 'react';
-import './HomePage.css';
+import './index.css';
 
 const HomePage = () => {
 
