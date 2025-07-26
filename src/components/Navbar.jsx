@@ -44,7 +44,7 @@ const Navbar = () => {
             <div
               className={`gr gr1 ${activeTab === "home" ? "active" : ""}`}
               onClick={() => {
-                setActiveTab("home");
+                activeTab("home");
               }}
               style={{ color: defaultTextColor }}
             >
@@ -56,7 +56,7 @@ const Navbar = () => {
             <div
               className={`gr gr2 ${activeTab === "service" ? "active" : ""}`}
               onClick={() => {
-                setActiveTab("service");
+                activeTab("service");
               }}
               style={{ color: defaultTextColor }}
             >
@@ -68,7 +68,7 @@ const Navbar = () => {
             <div
               className={`gr gr3 ${activeTab === "contact" ? "active" : ""}`}
               onClick={() => {
-                setActiveTab("contact");
+                activeTab("contact");
               }}
               style={{ color: defaultTextColor }}
             >
@@ -80,7 +80,7 @@ const Navbar = () => {
             <div
               className={`gr gr3 ${activeTab === "join" ? "active" : ""}`}
               onClick={() => {
-                setActiveTab("join");
+                activeTab("join");
               }}
               style={{ color: defaultTextColor }}
             >
