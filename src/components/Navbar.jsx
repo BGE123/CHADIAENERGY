@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import logo from "../assets/chadia-logo-new.svg";
-import { FaUsersRectangle, FaHandHoldingHand } from "react-icons/fa6";
+import { FaBars, FaTimes } from "react-icons/fa";
 import { MdHomeRepairService } from "react-icons/md";
-import { FaHandsHelping } from "react-icons/fa";
+import { FaHandsHelping, FaUserFriends } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
 
 import "./Navbar.css";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -17,9 +18,14 @@ const Navbar = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "auto";
+  }, [menuOpen]);
 
+  const isMobile = window.innerWidth <= 768;
   const isHomeOrJoin = ["/", "/careers"].includes(location.pathname);
-  const defaultTextColor = !isSticky && isHomeOrJoin ? "#fff" : "#000";
+  const defaultTextColor =
+    !isMobile && !isSticky && isHomeOrJoin ? "#fff" : "#000";
 
   const tabMap = {
     "/": "home",
@@ -28,6 +34,8 @@ const Navbar = () => {
     "/careers": "join",
   };
   const activeTab = tabMap[location.pathname] || "";
+
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <nav className={`nav ${isSticky ? "sticky" : ""}`}>
@@ -38,50 +46,47 @@ const Navbar = () => {
           </div>
         </a>
 
-        {/* 👇 Replacing default links with tab grid */}
-        <div className="us-grid">
-          <a href="/">
+        {/* Hamburger Icon */}
+        <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? (
+            <FaTimes size={24} color={defaultTextColor} />
+          ) : (
+            <FaBars size={24} color={defaultTextColor} />
+          )}
+        </div>
+
+        {/* Grid Navigation */}
+        <div className={`us-grid ${menuOpen ? "open" : ""}`}>
+          <a href="/" onClick={closeMenu}>
             <div
               className={`gr gr1 ${activeTab === "home" ? "active" : ""}`}
-              onClick={() => {
-                activeTab("home");
-              }}
               style={{ color: defaultTextColor }}
             >
-              <FaUsersRectangle />
+              <FaUserFriends />
               Home
             </div>
           </a>
-          <a href="/services">
+          <a href="/services" onClick={closeMenu}>
             <div
               className={`gr gr2 ${activeTab === "service" ? "active" : ""}`}
-              onClick={() => {
-                activeTab("service");
-              }}
               style={{ color: defaultTextColor }}
             >
               <MdHomeRepairService />
               Our Services
             </div>
           </a>
-          <a href="/about">
+          <a href="/about" onClick={closeMenu}>
             <div
               className={`gr gr3 ${activeTab === "contact" ? "active" : ""}`}
-              onClick={() => {
-                activeTab("contact");
-              }}
               style={{ color: defaultTextColor }}
             >
               <IoIosCall />
               Contact Us
             </div>
           </a>
-          <a href="/careers">
+          <a href="/careers" onClick={closeMenu}>
             <div
               className={`gr gr3 ${activeTab === "join" ? "active" : ""}`}
-              onClick={() => {
-                activeTab("join");
-              }}
               style={{ color: defaultTextColor }}
             >
               <FaHandsHelping />
@@ -94,6 +99,9 @@ const Navbar = () => {
           <p>English</p>
         </div>
       </div>
+      {menuOpen && (
+        <div className="nav-overlay" onClick={() => setMenuOpen(false)}></div>
+      )}
     </nav>
   );
 };
