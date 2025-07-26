@@ -1,4 +1,3 @@
-// src/pages/HomePage.jsx
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import "./HomePage.css";
@@ -86,12 +85,14 @@ const HomePage = () => {
                 Reliable, sustainable energy solutions for a greener tomorrow...
               </p>
               <div class="buttons">
-                <button class="but2">
-                  <div class="btn">
-                    <a>Our Services</a>
-                    <HiArrowSmRight />
-                  </div>
-                </button>
+                <a href="/services">
+                  <button class="but2">
+                    <div class="btn">
+                      <a>Our Services</a>
+                      <HiArrowSmRight />
+                    </div>
+                  </button>
+                </a>
               </div>
             </div>
           </section>

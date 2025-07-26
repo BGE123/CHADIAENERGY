@@ -1,5 +1,6 @@
 import { HiArrowSmRight } from "react-icons/hi";
 import React, { useEffect, useRef, useState } from "react";
+import img2 from "../assets/engineer.jpeg";
 
 export default function WhoWeAre() {
   const heroRef = useRef(null);
@@ -26,7 +27,7 @@ export default function WhoWeAre() {
         <p>Energy Solutions | Engineering | Consultancy</p>
       </div>
       <div className="about-flex">
-        <img src="/src/assets/engineer.jpeg" alt="Engineering in Action" />
+        <img src={img2} alt="Engineering in Action" />
         <div className="about-content">
           <div>
             <p>

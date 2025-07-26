@@ -1,5 +1,10 @@
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 import React, { useEffect, useRef, useState } from "react";
+import img1 from "../assets/solar.jpg";
+import img2 from "../assets/engineer.jpeg";
+import img3 from "../assets/consult.jpg";
+import img4 from "../assets/genserv.jpeg";
+import img5 from "../assets/audit.jpeg";
 
 export default function service() {
   const scrollLeft = () => {
@@ -39,27 +44,27 @@ export default function service() {
       </button>
       <div className="service-cards" id="serviceCards">
         <div className="card">
-          <img src="/src/assets/solar.jpg" alt="Solar Energy" />
+          <img src={img1} alt="Solar Energy" />
           <h4>Energy Solutions</h4>
           <p>Optimizing performance and sustainability...</p>
         </div>
         <div className="card">
-          <img src="/src/assets/engineer.jpeg" alt="Engineer at Work" />
+          <img src={img2} alt="Engineer at Work" />
           <h4>Engineering Services</h4>
           <p>Expert design and execution of engineering projects...</p>
         </div>
         <div className="card">
-          <img src="/src/assets/consult.jpg" alt="Consultation in Progress" />
+          <img src={img3} alt="Consultation in Progress" />
           <h4>Consulting Services</h4>
           <p>Offering strategies and advice tailored to your needs...</p>
         </div>
         <div className="card">
-          <img src="/src/assets/genserv.jpeg" alt="Consultation in Progress" />
+          <img src={img4} alt="Consultation in Progress" />
           <h4>General Services</h4>
           <p>Offering strategies and advice tailored to your needs...</p>
         </div>
         <div className="card">
-          <img src="/src/assets/audit.jpeg" alt="Consultation in Progress" />
+          <img src={img5} alt="Consultation in Progress" />
           <h4>Energy Audits</h4>
           <p>Offering strategies and advice tailored to your needs...</p>
         </div>
