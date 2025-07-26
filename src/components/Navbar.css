@@ -3,23 +3,46 @@
 .nav {
   background: transparent;
   top: 0;
+  color: #f0f8ff;
   width: 100%;
   z-index: 10;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+.nav.sticky {
+  position: fixed;
+  top: 0;
+  background-color: white;
+  color: #0b0829;
+  left: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  animation: slideDown 0.3s ease;
+}
+.nav.sticky a,
+.nav.sticky .eng {
+  color: #0b0829;
+}
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
 
 .nav-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
+  width: 95%;
   margin: 0 auto;
   padding: 10px 25px;
-  box-shadow: 0 2px 2px -2px #ff8400;
 }
 
 logo {
@@ -28,7 +51,7 @@ logo {
 }
 
 .logo-img {
-  height: 75px;
+  height: 3rem;
   width: auto;
   object-fit: contain;
   transition: transform 0.2s ease;
@@ -46,19 +69,44 @@ logo-img :hover {
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 3rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.nav-links a {
-  color: #0B0829;
+.nav-links a,
+.eng {
+  color: #f0f8ff;
   text-decoration: none;
-  font-weight: 700;
+  font-weight: 400;
   transition: 0.2s ease;
 }
 
 .nav-links a:hover {
   color: #ff8400;
+}
+
+.underline-hover {
+  position: relative;
+  display: inline-block;
+  color: #0b0829;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.underline-hover::after {
+  content: "";
+  position: absolute;
+  bottom: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background-color: #e6793b;
+  transition: width 0.4s ease;
+}
+
+.underline-hover:hover::after {
+  width: 100%;
 }

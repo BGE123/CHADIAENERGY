@@ -1,42 +1,77 @@
 import React from "react";
 import "./Footer.css";
-import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedin } from "react-icons/fa";
+import { ImFacebook2 } from "react-icons/im";
+import {
+  FaInstagramSquare,
+  FaYoutubeSquare,
+  FaLinkedin,
+  FaFacebookSquare,
+} from "react-icons/fa";
+import logo from "../assets/chadia-logo-new.svg";
+import { Link, useLocation } from "react-router-dom";
 
 const Footer = () => {
-    return (
-        <footer className="footer">
-            <div className="footer-top">
-                <p>© 2025 Chadia Energy Systems Ltd</p>
-                <div className="social-icons">
-                    <a href="#"><FaFacebookF/></a>
-                    <a href="#"><FaInstagram/></a>
-                    <a href="#"><FaYoutube/></a>
-                    <a href="#"><FaLinkedin/></a>
-                </div>
-            </div>
-
-            <div className="footer-links">
-                <div>
-                    <h4>Topic</h4>
-                    <p>Page</p>
-                    <p>Page</p>
-                    <p>Page</p>
-                </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <p>News</p>
-                    <p>Careers</p>
-                    <p>About</p>
-                </div>
-                <div>
-                    <h4>Resources</h4>
-                    <p>Sustainability</p>
-                    <p>Privacy Policy</p>
-                    <p>Contact Us</p>
-                </div>
-            </div>
-        </footer>
-    );
+  return (
+    <footer className="footer">
+      <Link to="/" id="logo">
+        <img src={logo} alt="Chadia Energy" className="logo-img" />
+      </Link>
+      <div class="main-footer">
+        <div class="left-side">
+          <div class="in-left">
+            <h3>Address</h3>
+            <p>123, Wall Street</p>
+          </div>
+          <div class="in-left">
+            <h3>Contact</h3>
+            <p>444-021-901</p>
+            <p>info@chadiaenergy.io</p>
+          </div>
+          <div className="social-icons">
+            <a href="#">
+              <FaFacebookSquare />
+            </a>
+            <a href="#">
+              <FaInstagramSquare />
+            </a>
+            <a href="#">
+              <FaYoutubeSquare />
+            </a>
+            <a href="#">
+              <FaLinkedin />
+            </a>
+          </div>
+        </div>
+        <div className="footer-links">
+          <div>
+            <p>Page</p>
+            <p>Page</p>
+            <p>Page</p>
+          </div>
+          <div>
+            <p>News</p>
+            <p>Careers</p>
+            <p>About</p>
+          </div>
+          <div>
+            <p>Sustainability</p>
+            <p>Privacy Policy</p>
+            <p>Contact Us</p>
+          </div>
+        </div>
+      </div>
+      <div className="footer-top">
+        <div>
+          <p>© 2025 Chadia Energy Systems Ltd</p>
+        </div>
+        <div class="resources">
+          <p>Privacy Policy</p>
+          <p>Terms and Conditions</p>
+          <p>Cookie Policy</p>
+        </div>
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
