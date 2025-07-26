@@ -1,6 +1,10 @@
 import { motion } from "framer-motion";
 import React, { useEffect, useRef, useState } from "react";
-
+import img1 from "../assets/solar.jpg";
+import img2 from "../assets/engineer.jpeg";
+import img3 from "../assets/consult.jpg";
+import img4 from "../assets/genserv.jpeg";
+import img5 from "../assets/audit.jpeg";
 const pageVariants = {
   initial: { opacity: 0, y: 40 },
   animate: { opacity: 1, y: 0 },
@@ -46,7 +50,7 @@ const Services = () => {
           <div className="service-card">
             <h2>Renewable Energy Solutions</h2>
             <div class="more">
-              <img src="/src/assets/solar.jpg" alt="Energy Solutions" />
+              <img src={img1} alt="Energy Solutions" />
               <div>
                 <p>
                   At Chadia Energy, we specialize in designing and installing
@@ -70,7 +74,7 @@ const Services = () => {
           <div className="service-card1">
             <h2>Engineering Services</h2>
             <div class="more1">
-              <img src="/src/assets/engineer.jpeg" alt="Engineering Services" />
+              <img src={img2} alt="Engineering Services" />
               <div>
                 <p>
                   At Chadia Energy, our engineering services are rooted in
@@ -97,7 +101,7 @@ const Services = () => {
           <div className="service-card">
             <h2>Consulting Services</h2>
             <div class="more">
-              <img src="/src/assets/consult.jpg" alt="Consulting Services" />
+              <img src={img3} alt="Consulting Services" />
               <div>
                 <p>
                   Our consultancy services are designed to support
@@ -122,7 +126,7 @@ const Services = () => {
           <div className="service-card1">
             <h2>Energy Audits</h2>
             <div class="more1">
-              <img src="/src/assets/audit.jpeg" alt="Energy Audits" />
+              <img src={img4} alt="Energy Audits" />
               <div>
                 <p>
                   Our Energy Audit services offer comprehensive evaluations of
@@ -149,7 +153,7 @@ const Services = () => {
           <div className="service-card">
             <h2>General Services</h2>
             <div class="more">
-              <img src="/src/assets/genserv.jpeg" alt="General Services" />
+              <img src={img5} alt="General Services" />
               <div>
                 <p>
                   At Chadia Energy, we offer a broad range of general services
