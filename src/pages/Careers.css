@@ -1,0 +1,77 @@
+.careers-page {
+  font-family: "Inter", sans-serif;
+}
+
+.careers-hero {
+  background-image: url("/src/assets/highrespic2.jpg"); /* path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 95vh;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: left;
+  border-radius: 0 0 20px 20px;
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+}
+.careers-hero.animate-in {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.hero-content {
+  color: white;
+  z-index: 2;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.intro {
+  padding: 60px;
+}
+
+.positions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  padding: 40px;
+}
+
+.position {
+  flex: 1 1 300px;
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.position h3 {
+  margin-top: 0;
+  color: #000;
+}
+
+.position button {
+  margin-top: 1rem;
+  background-color: #0b0829;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 4px;
+  cursor: pointer;
+}

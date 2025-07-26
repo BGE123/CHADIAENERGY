@@ -1,23 +1,100 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import logo from '../assets/chadia-logo-new.svg';
-import './Navbar.css';
+import React, { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import logo from "../assets/chadia-logo-new.svg";
+import { FaUsersRectangle, FaHandHoldingHand } from "react-icons/fa6";
+import { MdHomeRepairService } from "react-icons/md";
+import { FaHandsHelping } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
+
+import "./Navbar.css";
 
 const Navbar = () => {
+  const [isSticky, setIsSticky] = useState(false);
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => setIsSticky(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const isHomeOrJoin = ["/", "/careers"].includes(location.pathname);
+  const defaultTextColor = !isSticky && isHomeOrJoin ? "#fff" : "#000";
+
+  const tabMap = {
+    "/": "home",
+    "/services": "service",
+    "/about": "contact",
+    "/careers": "join",
+  };
+  const activeTab = tabMap[location.pathname] || "";
+
   return (
-    <nav className="nav">
-  <div className="nav-container">
-    <div className="logo">
-      <a href="/" id='logo'><img src={logo} alt="Chadia Energy" className='logo-img'/></a></div>
-    <ul className="nav-links">
-      
-      <li><a href="/about">Who we are</a></li>
-      <li><a href="/services">What we do</a></li>
-      <li><a href="/sustainability">Sustainability</a></li>
-      <li><a href="/careers">Join us</a></li>
-    </ul>
-  </div>
-</nav>
+    <nav className={`nav ${isSticky ? "sticky" : ""}`}>
+      <div className="nav-container">
+        <a href="/">
+          <div className="logo">
+            <img src={logo} alt="Chadia Energy" className="logo-img" />
+          </div>
+        </a>
+
+        {/* 👇 Replacing default links with tab grid */}
+        <div className="us-grid">
+          <a href="/">
+            <div
+              className={`gr gr1 ${activeTab === "home" ? "active" : ""}`}
+              onClick={() => {
+                setActiveTab("home");
+              }}
+              style={{ color: defaultTextColor }}
+            >
+              <FaUsersRectangle />
+              Home
+            </div>
+          </a>
+          <a href="/services">
+            <div
+              className={`gr gr2 ${activeTab === "service" ? "active" : ""}`}
+              onClick={() => {
+                setActiveTab("service");
+              }}
+              style={{ color: defaultTextColor }}
+            >
+              <MdHomeRepairService />
+              Our Services
+            </div>
+          </a>
+          <a href="/about">
+            <div
+              className={`gr gr3 ${activeTab === "contact" ? "active" : ""}`}
+              onClick={() => {
+                setActiveTab("contact");
+              }}
+              style={{ color: defaultTextColor }}
+            >
+              <IoIosCall />
+              Contact Us
+            </div>
+          </a>
+          <a href="/careers">
+            <div
+              className={`gr gr3 ${activeTab === "join" ? "active" : ""}`}
+              onClick={() => {
+                setActiveTab("join");
+              }}
+              style={{ color: defaultTextColor }}
+            >
+              <FaHandsHelping />
+              Join Us
+            </div>
+          </a>
+        </div>
+
+        <div className="eng" style={{ color: defaultTextColor }}>
+          <p>English</p>
+        </div>
+      </div>
+    </nav>
   );
 };
 

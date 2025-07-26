@@ -1,53 +1,102 @@
-import React from 'react';
-import './index.css';
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import logo from "../assets/chadia-logo-new.svg";
+import { Link, useLocation } from "react-router-dom";
+
+const pageVariants = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -40 },
+};
 
 function About() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const name = `${firstName} ${lastName}`;
+    const formData = { name, email, message };
+
+    try {
+      const res = await fetch("http://localhost:5000/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      alert(data.message || "Message sent successfully!");
+
+      // Clear form fields
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setMessage("");
+    } catch (err) {
+      alert("Something went wrong. Try again later.");
+    }
+  };
+
   return (
-    <div className="about-page">
-      <div className="about-hero">
-        <h1>About <span className="highlight">Chadia Energy</span></h1>
-        <p>Energy Solutions    |     Engineering     |     Consultancy</p>
-      </div>
-
-      <div className='about-flex'>
-      <img className= 'about-img' src="/src/assets/engineer.jpeg" alt="Engineering in Action"/>
-
-      <div className="about-content">
-        <p>
-          Chadia Energy System Ltd is a premier provider of innovative energy
-          solutions and engineering services dedicated to advancing the energy sector.
-          With a commitment to excellence and sustainability, we offer a comprehensive
-          range of services tailored to meet the evolving needs of our clients in
-          various industries.
-        </p>
-        <p>
-          Our expertise encompasses renewable energy systems, energy efficiency
-          consulting, and engineering design, all aimed at creating reliable and
-          effective energy solutions.
-        </p>
-        <p>
-          Our mission is to provide high-quality energy services that enhance
-          operational performance, reduce environmental impact, and contribute to a
-          cleaner, more sustainable future. We strive to exceed our clients’
-          expectations through innovation, expertise, and a strong commitment to
-          customer service.
-        </p>
-      </div>
-      </div>
-
-      <div className="contact-form">
-        <h2>Contact Us</h2>
-        <form>
-          <div className="form-row">
-            <input type="text" placeholder="First name" />
-            <input type="text" placeholder="Last name" />
+    <motion.div
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
+      <div className="about-page">
+        <div class="get-in-touch">
+          <h1>Get In Touch With Our Friendly Team</h1>
+        </div>
+        <div class="two">
+          <div>
+            <div className="logo1">
+              <img src={logo} alt="Chadia Energy" />
+            </div>
           </div>
-          <input type="email" placeholder="Email address" />
-          <textarea placeholder="Enter your question or message"></textarea>
-          <button type="submit">Submit</button>
-        </form>
+          <div className="contact-form">
+            <h2>Contact Us</h2>
+            <form onSubmit={handleSubmit}>
+              <div className="form-row">
+                <input
+                  type="text"
+                  placeholder="First name"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                  required
+                />
+                <input
+                  type="text"
+                  placeholder="Last name"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  required
+                />
+              </div>
+              <input
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+              <textarea
+                placeholder="Enter your question or message"
+                value={message}
+                onChange={(e) => setMessage(e.target.value)}
+                required
+              ></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

@@ -1,90 +1,134 @@
 // src/pages/HomePage.jsx
-import React, { useEffect, useRef } from 'react';
-import './index.css';
+import { useEffect, useRef } from "react";
+import { useState } from "react";
+import "./HomePage.css";
+import { HiArrowSmRight } from "react-icons/hi";
+import OurValue from "../components/ourValue";
+import WhoWeAre from "../components/whoweare";
+import Services from "../components/services";
+import { motion } from "framer-motion";
 
+const scrollToSection = (id) => {
+  const section = document.getElementById(id);
+  if (section) {
+    section.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
+const pageVariants = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0 },
+  exit: { opacity: 0, y: -40 },
+};
 const HomePage = () => {
+  const valuesSectionRef = useRef(null);
 
-  const valueRefs = useRef ([]);
+  const heroRef = useRef(null);
+  const [heroVisible, setHeroVisible] = useState(false);
 
-  useEffect (() => {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setHeroVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    if (heroRef.current) observer.observe(heroRef.current);
+    return () => observer.disconnect();
+  }, []);
+  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('slide-in');
+            entry.target.classList.add("slide-group");
+          } else {
+            entry.target.classList.remove("slide-group");
           }
         });
       },
       { threshold: 0.3 }
     );
 
-    valueRefs.current.forEach((ref) => {
-      if (ref) observer.observe(ref);
-    });
+    const section = valuesSectionRef.current;
+    if (section) observer.observe(section);
 
     return () => {
-      valueRefs.current.forEach((ref) => {
-        if (ref) observer.unobserve(ref);
-      });
+      if (section) observer.unobserve(section);
     };
   }, []);
 
   return (
-    <div className="homepage">
-      <section className="hero">
-        <h1>Powering the Future, Responsibly</h1>
-        <p>Reliable, sustainable energy solutions for a greener tomorrow...</p>
-        <button>Read More</button>
-      </section>
-
-      <section className="values">
-        <h2>Our Values</h2>
-       {['sustainability','integrity','innovation'].map((word, index) => (
-        <h1
-          key={word}
-          className="value-text"
-          ref={(el) => (valueRefs.current[index] = el)}
-          style={{color: word === 'integrity' ? '#FF8400' : '#0B0829' }}>
-            {word}
-          </h1>
-       ))}
-      </section>
-
-      <section className="services">
-        <h2>Core Services</h2>
-        <div className="service-cards">
-          <div className="card">
-            <img src="/src/assets/solar.jpg" alt="Solar Energy" />
-            <h4>Energy Solutions</h4>
-            <p>Optimizing performance and sustainability...</p>
-          </div>
-          <div className="card">
-            <img src="/src/assets/engineer.jpeg" alt="Engineer at Work" />
-            <h4>Engineering Services</h4>
-            <p>Expert design and execution of engineering projects...</p>
-          </div>
-          <div className="card">
-            <img src="/src/assets/consult.jpg" alt="Consultation in Progress" />
-            <h4>Consulting Services</h4>
-            <p>Offering strategies and advice tailored to your needs...</p>
-          </div>
+    <motion.div
+      variants={pageVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+      transition={{ duration: 0.4 }}
+    >
+      <div className="homepage">
+        <div class="hero-back">
+          <section
+            ref={heroRef}
+            className={`hero ${heroVisible ? "animate-in" : ""}`}
+          >
+            <div class="overlay"></div>
+            <div class="in-hero">
+              <p>
+                <span class="chadia">CHADIA</span>
+                <span class="energy">ENERGY</span>
+              </p>
+              <h1>Powering the Future, Responsibly</h1>
+              <p>
+                Reliable, sustainable energy solutions for a greener tomorrow...
+              </p>
+              <div class="buttons">
+                <button class="but2">
+                  <div class="btn">
+                    <a>Our Services</a>
+                    <HiArrowSmRight />
+                  </div>
+                </button>
+              </div>
+            </div>
+          </section>
         </div>
-        <button style={{display: "flex", justifyContent: "center"}}>Learn More</button>
-      </section>
 
-      <section className="why-chadia">
-        <h2>Why Choose Chadia?</h2>
-        <p>
-          Chadia Energy combines technical expertise with a deep understanding of the energy landscape. 
-          Our team of professionals is passionate about delivering high-quality solutions that not only meet regulatory standards, 
-          but also foster economic growth and environmental sustainability.
-        </p>
-        <p>
-          By choosing us, you gain a trusted partner committed to your success and the well-being of our planet.
-        </p>
-        <button style={{display: "flex" ,justifyContent: "flex-end"}}>Read More</button>
-      </section>
-    </div>
+        <section>
+          {/* Render Selected Component */}
+          <div id="who-we-are">
+            <WhoWeAre />
+          </div>
+          <div id="serve">
+            <Services />
+          </div>
+          <div id="our-value">
+            <OurValue />
+          </div>
+        </section>
+
+        <section className="why-chadia">
+          <h2>Why Choose Chadia?</h2>
+          <p>
+            Chadia Energy combines technical expertise with a deep understanding
+            of the energy landscape. Our team of professionals is passionate
+            about delivering high-quality solutions that not only meet
+            regulatory standards, but also foster economic growth and
+            environmental sustainability.
+          </p>
+          <p>
+            By choosing us, you gain a trusted partner committed to your success
+            and the well-being of our planet.
+          </p>
+          <button style={{ display: "flex", justifyContent: "flex-end" }}>
+            Read More
+          </button>
+        </section>
+      </div>
+    </motion.div>
   );
 };
 

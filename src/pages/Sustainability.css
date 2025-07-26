@@ -1,0 +1,39 @@
+.sustainability-page {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+.sustainability-page h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #0c054e;
+}
+
+.sustainability-page p {
+  color: #444;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.pillars {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pillar {
+  flex: 1 1 300px;
+  background-color: #f0f8ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 5px solid #ffa500;
+}
+
+.pillar h3 {
+  margin-top: 0;
+  color: #000;
+}
+
+.pillar p {
+  margin-top: 0.5rem;
+}
