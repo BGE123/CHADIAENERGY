@@ -1,17 +1,15 @@
 const express = require("express");
-const mongoose = require("mongoose");
 const cors = require("cors");
 require("dotenv").config();
+
+console.log("EMAIL_USER:", process.env.EMAIL_USER);
+console.log("EMAIL_PASS:", process.env.EMAIL_PASS ? "loaded" : "NOT loaded");
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-mongoose
-  .connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error(err));
-
+// Route handler
 app.use("/api/contact", require("./routes/contact"));
 
 const PORT = process.env.PORT || 5000;
