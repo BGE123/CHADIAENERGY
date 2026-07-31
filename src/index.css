@@ -16,7 +16,11 @@ h4,
 h5 {
   font-family: "Plus Jakarta Sans";
 }
-
+html,
+body {
+  overscroll-behavior-y: none;
+  overscroll-behavior-x: none;
+}
 .our-value {
   padding: 4rem 9rem;
   display: flex;
@@ -90,7 +94,9 @@ h5 {
   margin: 0;
   transform: translateY(100px);
   opacity: 0;
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition:
+    opacity 0.8s ease-out,
+    transform 0.8s ease-out;
   white-space: nowrap;
 }
 
@@ -110,7 +116,9 @@ h5 {
   position: relative;
   transform: translateX(50px);
   opacity: 0;
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transition:
+    transform 0.8s ease-out,
+    opacity 0.8s ease-out;
 }
 .services.animate-in {
   transform: translateY(0);
@@ -280,7 +288,9 @@ img {
   background: white;
   transform: translateX(50px);
   opacity: 0;
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transition:
+    transform 0.8s ease-out,
+    opacity 0.8s ease-out;
 }
 .WE.animate-in {
   transform: translateY(0);
@@ -289,7 +299,9 @@ img {
 .new {
   transform: translateX(50px);
   opacity: 0;
-  transition: transform 0.8s ease-out, opacity 0.8s ease-out;
+  transition:
+    transform 0.8s ease-out,
+    opacity 0.8s ease-out;
 }
 .new.animate-in {
   transform: translateY(0);
