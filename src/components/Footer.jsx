@@ -25,7 +25,7 @@ const Footer = () => {
           <div class="in-left">
             <h3>Contact</h3>
             <p>444-021-901</p>
-            <p>chadiaenergyltd@gmail.com</p>
+            <p>chadiaenergysystem@gmail.com</p>
           </div>
           <div className="social-icons">
             <a href="#">
